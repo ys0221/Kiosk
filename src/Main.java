@@ -67,11 +67,14 @@ public class Main {
             int burger_next = burgers[select_burger-1].next();
             if (burger_next == 1) {
                 burgers[select_burger-1].plusBurger(select_burger);
+                /*
                 System.out.println(burgers[select_burger-1].one_burger);
                 System.out.println(burgers[select_burger-1].two_burger);
                 System.out.println(burgers[select_burger-1].three_burger);
                 System.out.println(burgers[select_burger-1].four_burger);
                 System.out.println(burgers[select_burger-1].five_burger);
+
+                 */
                 // 메뉴로 돌아간다
             } else {
                 // 메뉴로 돌아간다
@@ -101,12 +104,15 @@ public class Main {
             int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
             if (frozen_custard_next == 1) {
                 frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
+                /*
                 System.out.println(frozen_custards[select_frozen_custard-1].one_frozen_custard);
                 System.out.println(frozen_custards[select_frozen_custard-1].two_frozen_custard);
                 System.out.println(frozen_custards[select_frozen_custard-1].three_frozen_custard);
                 System.out.println(frozen_custards[select_frozen_custard-1].four_frozen_custard);
                 System.out.println(frozen_custards[select_frozen_custard-1].five_frozen_custard);
                 System.out.println(frozen_custards[select_frozen_custard-1].six_frozen_custard);
+
+                 */
                 // 메뉴로 돌아간다
             } else {
                 // 메뉴로 돌아간다
@@ -137,12 +143,15 @@ public class Main {
             int drink_next = drinks[select_drink-1].next();
             if (drink_next == 1) {
                 drinks[select_drink-1].plusDrink(select_drink);
+                /*
                 System.out.println(drinks[select_drink-1].one_drink);
                 System.out.println(drinks[select_drink-1].two_drink);
                 System.out.println(drinks[select_drink-1].three_drink);
                 System.out.println(drinks[select_drink-1].four_drink);
                 System.out.println(drinks[select_drink-1].five_drink);
                 System.out.println(drinks[select_drink-1].six_drink);
+
+                 */
                 // 메뉴로 돌아간다
             } else {
                 // 메뉴로 돌아간다
@@ -169,8 +178,11 @@ public class Main {
             int beer_next = beers[select_beer-1].next();
             if (beer_next == 1) {
                 beers[select_beer-1].plusBeer(select_beer);
+                /*
                 System.out.println(beers[select_beer-1].one_beer);
                 System.out.println(beers[select_beer-1].two_beer);
+
+                 */
                 // 메뉴로 돌아간다
             } else {
                 // 메뉴로 돌아간다
