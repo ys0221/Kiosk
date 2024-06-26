@@ -44,7 +44,7 @@ public class Drink extends Menu {
         } else if(drinknum == 6){
             six_drink++;
         } else {
-            // nothing
+
         }
     }
 }

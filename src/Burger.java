@@ -40,7 +40,7 @@ public class Burger extends Menu {
         } else if(burgernum == 5){
             five_burger++;
         } else {
-            // nothing
+
         }
     }
 }
