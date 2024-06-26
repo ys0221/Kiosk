@@ -39,7 +39,7 @@ public class Main {
 
         // 잘못된 메뉴 선택 시 경고 후 재선택
         while (select_menu > 6) {
-            System.out.println("메뉴를 잘못 선택하셨습니다. 다시 선택해주세요.");
+            System.out.println("잘못 선택하셨습니다. 다시 선택해주세요.");
             select_menu = menu_scanner.nextInt();
         }
 
@@ -56,6 +56,29 @@ public class Main {
             for(int i=0; i<burgers.length; i++){
                 burgers[i].printBurger(i);
             }
+            Scanner burger_scanner = new Scanner(System.in);
+            int select_burger = burger_scanner.nextInt();
+            if(select_burger > 5){
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                select_burger = burger_scanner.nextInt();
+            }
+            // Q. burgers.orderBurger(select_burger) 과의 차이점이 궁금
+            burgers[select_burger-1].orderBurger(select_burger-1);
+            int burger_next = burgers[select_burger-1].next();
+            if (burger_next == 1) {
+                burgers[select_burger-1].plusBurger(select_burger);
+                /*
+                System.out.println(burgers[select_burger-1].one_burger);
+                System.out.println(burgers[select_burger-1].two_burger);
+                System.out.println(burgers[select_burger-1].three_burger);
+                System.out.println(burgers[select_burger-1].four_burger);
+                System.out.println(burgers[select_burger-1].five_burger);
+
+                 */
+                // 메뉴로 돌아간다
+            } else {
+                // 메뉴로 돌아간다
+            }
         }
 
         // 아이스크림 선택
@@ -71,6 +94,30 @@ public class Main {
             for (int i=0; i<frozen_custards.length; i++){
                 frozen_custards[i].printFrozenCustard(i);
             }
+            Scanner frozen_custard_scanner = new Scanner(System.in);
+            int select_frozen_custard = frozen_custard_scanner.nextInt();
+            if (select_frozen_custard > 6) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                select_frozen_custard = frozen_custard_scanner.nextInt();
+            }
+            frozen_custards[select_frozen_custard-1].orderFrozenCustard(select_frozen_custard-1);
+            int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+            if (frozen_custard_next == 1) {
+                frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
+                /*
+                System.out.println(frozen_custards[select_frozen_custard-1].one_frozen_custard);
+                System.out.println(frozen_custards[select_frozen_custard-1].two_frozen_custard);
+                System.out.println(frozen_custards[select_frozen_custard-1].three_frozen_custard);
+                System.out.println(frozen_custards[select_frozen_custard-1].four_frozen_custard);
+                System.out.println(frozen_custards[select_frozen_custard-1].five_frozen_custard);
+                System.out.println(frozen_custards[select_frozen_custard-1].six_frozen_custard);
+
+                 */
+                // 메뉴로 돌아간다
+            } else {
+                // 메뉴로 돌아간다
+            }
+
         }
 
         // 음료 선택
@@ -86,6 +133,29 @@ public class Main {
             for (int i=0; i<drinks.length; i++){
                 drinks[i].printDrink(i);
             }
+            Scanner drink_scanner = new Scanner(System.in);
+            int select_drink = drink_scanner.nextInt();
+            if (select_drink > 6) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                select_drink = drink_scanner.nextInt();
+            }
+            drinks[select_drink-1].orderDrink(select_drink-1);
+            int drink_next = drinks[select_drink-1].next();
+            if (drink_next == 1) {
+                drinks[select_drink-1].plusDrink(select_drink);
+                /*System.out.println(drinks[select_drink-1].one_drink);
+                System.out.println(drinks[select_drink-1].two_drink);
+                System.out.println(drinks[select_drink-1].three_drink);
+                System.out.println(drinks[select_drink-1].four_drink);
+                System.out.println(drinks[select_drink-1].five_drink);
+                System.out.println(drinks[select_drink-1].six_drink);
+
+                 */
+                // 메뉴로 돌아간다
+            } else {
+                // 메뉴로 돌아간다
+            }
+
         }
 
         // 맥주 선택
@@ -96,6 +166,24 @@ public class Main {
             System.out.println("[ Beers Menu ]");
             for (int i=0; i<beers.length; i++){
                 beers[i].printBeer(i);
+            }
+            Scanner beers_scanner = new Scanner(System.in);
+            int select_beer = beers_scanner.nextInt();
+            if (select_beer > 2) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                select_beer = beers_scanner.nextInt();
+            }
+            beers[select_beer-1].orderBeer(select_beer-1);
+            int beer_next = beers[select_beer-1].next();
+            if (beer_next == 1) {
+                beers[select_beer-1].plusBeer(select_beer);
+                /*
+                System.out.println(beers[select_beer-1].one_beer);
+                System.out.println(beers[select_beer-1].two_beer);
+                 */
+                // 메뉴로 돌아간다
+            } else {
+                // 메뉴로 돌아간다
             }
         }
     }
