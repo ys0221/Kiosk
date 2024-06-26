@@ -32,7 +32,7 @@ public class Beer extends Menu {
         } else if (beernum == 2) {
             two_beer++;
         } else {
-
+            // nothing
         }
     }
 }

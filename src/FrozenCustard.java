@@ -44,7 +44,7 @@ public class FrozenCustard extends Menu {
         } else if (frozen_custard_num == 6) {
             six_frozen_custard++;
         } else {
-
+            // nothing
         }
     }
 }
