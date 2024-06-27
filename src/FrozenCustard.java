@@ -9,6 +9,8 @@ public class FrozenCustard extends Menu {
     int four_frozen_custard = 0;
     int five_frozen_custard = 0;
     int six_frozen_custard = 0;
+    String frozencustard_name[] = new String[6];
+
     public FrozenCustard(String title, double price, String description) {
         this.frozencustardTitle = title;
         this.price = price;
@@ -45,6 +47,30 @@ public class FrozenCustard extends Menu {
             six_frozen_custard++;
         } else {
             // nothing
+        }
+    }
+    public String frozencustardName() {
+        if (one_frozen_custard == 1) {
+            frozencustard_name[0] = "Shakes";
+            return frozencustard_name[0];
+            // return "ShackBurger";
+        } else if (two_frozen_custard >= 1) {
+            frozencustard_name[1] = "Shake of the Week";
+            return frozencustard_name[1];
+        } else if (three_frozen_custard >= 1) {
+            frozencustard_name[2] = "Red Bean Shake";
+            return frozencustard_name[2];
+        } else if (four_frozen_custard >= 1) {
+            frozencustard_name[3] = "Floats";
+            return frozencustard_name[3];
+        } else if (five_frozen_custard >= 1) {
+            frozencustard_name[4] = "Cups & Cones";
+            return frozencustard_name[4];
+        } else if (six_frozen_custard >= 1) {
+            frozencustard_name[5] = "Concretes";
+            return frozencustard_name[5];
+        } else {
+            return null;
         }
     }
 }

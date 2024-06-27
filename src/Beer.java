@@ -5,6 +5,8 @@ public class Beer extends Menu {
     // 각 상품별 주문 개수
     int one_beer = 0;
     int two_beer = 0;
+    String[] beer_name = new String[2];
+
     public Beer(String title, double price, String description) {
         this.beerTitle = title;
         this.price = price;
@@ -33,6 +35,18 @@ public class Beer extends Menu {
             two_beer++;
         } else {
             // nothing
+        }
+    }
+    public String beerName() {
+        if (one_beer >= 1) {
+            beer_name[0] = "ShackMeister Ale";
+            return beer_name[0];
+            // return "ShackBurger";
+        } else if (two_beer == 1) {
+            beer_name[1] = "Magpie Brewing Co.";
+            return beer_name[1];
+        } else {
+            return null;
         }
     }
 }

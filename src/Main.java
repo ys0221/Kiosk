@@ -2,13 +2,9 @@ import javax.naming.BinaryRefAddr;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        int num_menu = 6; // 메뉴의 총 개수 (주문과 취소까지 포함)
-        int num_burger = 5;
-        int num_frozencustard = 6;
-        int num_drinks = 6;
-        int num_beer = 2;
+    public static void menuField() {
         // 객체 배열 사용
+        int num_menu = 6; // 주문과 취소까지 포함한 메뉴의 개수
         Menu[] menu = new Menu[num_menu]; // 길이가 num_menu인 Menu 타입의 참조변수 배열
         // 객체를 생성해서 배열의 각 요소에 저장
         menu[0] = new Menu("Burgers","앵거스 비프 통살을 다져만든 버거");
@@ -17,7 +13,6 @@ public class Main {
         menu[3] = new Menu("Beer", "뉴욕 브루클린 브루어리에서 양조한 맥주");
         menu[4] = new Menu("Order", "장바구니를 확인 후 주문합니다.");
         menu[5] = new Menu("Cancel", "진행 중인 주문을 취소합니다.");
-
         // 메인 메뉴판 화면
         System.out.println("\"SHAKESHACK BURGER 에 오신걸 환영합니다.\"");
         System.out.println("아래 메뉴판을 보시고 메뉴를 골라 입력해주세요");
@@ -32,7 +27,14 @@ public class Main {
         for(int i=4; i<menu.length; i++){
             menu[i].printMenu(i);
         }
-
+    }
+    public static void main(String[] args) {
+        int num_burger = 5;
+        int num_frozencustard = 6;
+        int num_drinks = 6;
+        int num_beer = 2;
+        // 메뉴판 출력
+        menuField();
         // 메뉴 선택
         Scanner menu_scanner = new Scanner(System.in);
         int select_menu = menu_scanner.nextInt();
@@ -67,17 +69,12 @@ public class Main {
             int burger_next = burgers[select_burger-1].next();
             if (burger_next == 1) {
                 burgers[select_burger-1].plusBurger(select_burger);
-                /*
-                System.out.println(burgers[select_burger-1].one_burger);
-                System.out.println(burgers[select_burger-1].two_burger);
-                System.out.println(burgers[select_burger-1].three_burger);
-                System.out.println(burgers[select_burger-1].four_burger);
-                System.out.println(burgers[select_burger-1].five_burger);
-
-                 */
-                // 메뉴로 돌아간다
+                String burger = burgers[select_burger-1].burgerName();
+                System.out.println(burger + " 가 장바구니에 추가되었습니다.");
+                menuField();
             } else {
-                // 메뉴로 돌아간다
+                System.out.println("취소되었습니다.");
+                menuField();
             }
         }
 
@@ -104,18 +101,12 @@ public class Main {
             int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
             if (frozen_custard_next == 1) {
                 frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
-                /*
-                System.out.println(frozen_custards[select_frozen_custard-1].one_frozen_custard);
-                System.out.println(frozen_custards[select_frozen_custard-1].two_frozen_custard);
-                System.out.println(frozen_custards[select_frozen_custard-1].three_frozen_custard);
-                System.out.println(frozen_custards[select_frozen_custard-1].four_frozen_custard);
-                System.out.println(frozen_custards[select_frozen_custard-1].five_frozen_custard);
-                System.out.println(frozen_custards[select_frozen_custard-1].six_frozen_custard);
-
-                 */
-                // 메뉴로 돌아간다
+                String burger = frozen_custards[select_frozen_custard-1].frozencustardName();
+                System.out.println(burger + " 가 장바구니에 추가되었습니다.");
+                menuField();
             } else {
-                // 메뉴로 돌아간다
+                System.out.println("취소되었습니다.");
+                menuField();
             }
 
         }
@@ -143,18 +134,12 @@ public class Main {
             int drink_next = drinks[select_drink-1].next();
             if (drink_next == 1) {
                 drinks[select_drink-1].plusDrink(select_drink);
-                /*
-                System.out.println(drinks[select_drink-1].one_drink);
-                System.out.println(drinks[select_drink-1].two_drink);
-                System.out.println(drinks[select_drink-1].three_drink);
-                System.out.println(drinks[select_drink-1].four_drink);
-                System.out.println(drinks[select_drink-1].five_drink);
-                System.out.println(drinks[select_drink-1].six_drink);
-
-                 */
-                // 메뉴로 돌아간다
+                String drink = drinks[select_drink-1].drinkName();
+                System.out.println(drink+" 가 장바구니에 추가되었습니다.");
+                menuField();
             } else {
-                // 메뉴로 돌아간다
+                System.out.println("취소되었습니다.");
+                menuField();
             }
 
         }
@@ -178,14 +163,11 @@ public class Main {
             int beer_next = beers[select_beer-1].next();
             if (beer_next == 1) {
                 beers[select_beer-1].plusBeer(select_beer);
-                /*
-                System.out.println(beers[select_beer-1].one_beer);
-                System.out.println(beers[select_beer-1].two_beer);
-
-                 */
-                // 메뉴로 돌아간다
+                String beer = beers[select_beer-1].beerName();
+                System.out.println(beer+ " 가 장바구니에 추가되었습니다.");
+                menuField();
             } else {
-                // 메뉴로 돌아간다
+                menuField();
             }
         }
     }
