@@ -9,6 +9,7 @@ public class Drink extends Menu {
     int four_drink = 0;
     int five_drink = 0;
     int six_drink = 0;
+    String[] drink_name = new String[6];
     public Drink(String title, double price, String description) {
         this.drinkTitle = title;
         this.price = price;
@@ -45,6 +46,30 @@ public class Drink extends Menu {
             six_drink++;
         } else {
             // nothing
+        }
+    }
+    public String drinkName() {
+        if (one_drink == 1) {
+            drink_name[0] = "Shack-made Lemonade";
+            return drink_name[0];
+            // return "ShackBurger";
+        } else if (two_drink >= 1) {
+            drink_name[1] = "Fresh Brewed Iced Tea";
+            return drink_name[1];
+        } else if (three_drink >= 1) {
+            drink_name[2] = "Fifty/Fifty";
+            return drink_name[2];
+        } else if (four_drink >= 1) {
+            drink_name[3] = "Fountain Soda";
+            return drink_name[3];
+        } else if (five_drink >= 1) {
+            drink_name[4] = "Abita Root Beer";
+            return drink_name[4];
+        } else if (six_drink >= 1) {
+            drink_name[5] = "Bottled Water";
+            return drink_name[5];
+        } else {
+            return null;
         }
     }
 }
