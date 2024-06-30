@@ -10,6 +10,9 @@ public class Drink extends Menu {
     int five_drink = 0;
     int six_drink = 0;
     String[] drink_name = new String[6];
+    public Drink() {
+        // 상속
+    }
     public Drink(String title, double price, String description) {
         this.drinkTitle = title;
         this.price = price;
@@ -27,6 +30,8 @@ public class Drink extends Menu {
         Scanner input = new Scanner(System.in);
         if (input.nextInt() == 1) {
             return 1;
+        } else if (input.nextInt() == 2){
+            return 2;
         } else {
             return 0;
         }
@@ -49,7 +54,7 @@ public class Drink extends Menu {
         }
     }
     public String drinkName() {
-        if (one_drink == 1) {
+        if (one_drink >= 1) {
             drink_name[0] = "Shack-made Lemonade";
             return drink_name[0];
             // return "ShackBurger";

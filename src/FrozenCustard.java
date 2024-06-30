@@ -11,6 +11,9 @@ public class FrozenCustard extends Menu {
     int six_frozen_custard = 0;
     String frozencustard_name[] = new String[6];
 
+    public FrozenCustard() {
+        // 상속
+    }
     public FrozenCustard(String title, double price, String description) {
         this.frozencustardTitle = title;
         this.price = price;
@@ -28,6 +31,8 @@ public class FrozenCustard extends Menu {
         Scanner input = new Scanner(System.in);
         if (input.nextInt() == 1) {
             return 1;
+        } else if (input.nextInt() == 2) {
+            return 2;
         } else {
             return 0;
         }
