@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class Drink extends Menu {
     double price; // 상품 가격
     // 각 상품별 주문 개수
-    int one_drink = 0;
-    int two_drink = 0;
-    int three_drink = 0;
-    int four_drink = 0;
-    int five_drink = 0;
-    int six_drink = 0;
+    int[] drinkNum = new int[6];
     String[] drink_name = new String[6];
+    public Drink() {
+        // 상속
+    }
     public Drink(String title, double price, String description) {
         this.drinkTitle = title;
         this.price = price;
@@ -25,47 +23,50 @@ public class Drink extends Menu {
     }
     public int next() {
         Scanner input = new Scanner(System.in);
-        if (input.nextInt() == 1) {
+        int select = input.nextInt();
+        if (select == 1) {
             return 1;
+        } else if (select == 2){
+            return 2;
         } else {
             return 0;
         }
     }
     public void plusDrink(int drinknum) {
         if (drinknum == 1) {
-            one_drink++;
+            drinkNum[0]++;
         } else if (drinknum == 2) {
-            two_drink++;
+            drinkNum[1]++;
         } else if (drinknum == 3) {
-            three_drink++;
+            drinkNum[2]++;
         } else if (drinknum == 4) {
-            four_drink++;
+            drinkNum[3]++;
         } else if(drinknum == 5){
-            five_drink++;
+            drinkNum[4]++;
         } else if(drinknum == 6){
-            six_drink++;
+            drinkNum[5]++;
         } else {
             // nothing
         }
     }
     public String drinkName() {
-        if (one_drink == 1) {
+        if (drinkNum[0] >= 1) {
             drink_name[0] = "Shack-made Lemonade";
             return drink_name[0];
             // return "ShackBurger";
-        } else if (two_drink >= 1) {
+        } else if (drinkNum[1] >= 1) {
             drink_name[1] = "Fresh Brewed Iced Tea";
             return drink_name[1];
-        } else if (three_drink >= 1) {
+        } else if (drinkNum[2]>= 1) {
             drink_name[2] = "Fifty/Fifty";
             return drink_name[2];
-        } else if (four_drink >= 1) {
+        } else if (drinkNum[3]>= 1) {
             drink_name[3] = "Fountain Soda";
             return drink_name[3];
-        } else if (five_drink >= 1) {
+        } else if (drinkNum[4] >= 1) {
             drink_name[4] = "Abita Root Beer";
             return drink_name[4];
-        } else if (six_drink >= 1) {
+        } else if (drinkNum[5] >= 1) {
             drink_name[5] = "Bottled Water";
             return drink_name[5];
         } else {

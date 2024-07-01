@@ -1,14 +1,15 @@
 import java.util.Scanner;
 public class Burger extends Menu {
-    double price; // 상품 가격
     // 햄버거 별 주문한 개수
-    int one_burger = 0;
-    int two_burger = 0;
-    int three_burger = 0;
-    int four_burger = 0;
-    int five_burger = 0;
+    // 초기값 0으로 설정된 배열 생성
+    int[] burgerNum = new int[5];
     String burger_name[] = new String[5];
+    double price; // 상품 가격
+    // double price = 0;
 
+    public Burger() {
+        // 상속
+    }
     public Burger(String title, double price, String description) {
         this.burgerTitle = title;
         this.price = price;
@@ -30,42 +31,45 @@ public class Burger extends Menu {
     }
     public int next() {
         Scanner input = new Scanner(System.in);
-        if (input.nextInt() == 1) {
+        int select = input.nextInt();
+        if (select == 1) {
             return 1;
+        } else if (select == 2) {
+            return 2;
         } else {
             return 0;
         }
     }
     public void plusBurger(int burgernum) {
         if (burgernum == 1) {
-            one_burger++;
+            burgerNum[0]++;
         } else if (burgernum == 2) {
-            two_burger++;
+            burgerNum[1]++;
         } else if (burgernum == 3) {
-            three_burger++;
+            burgerNum[2]++;
         } else if (burgernum == 4) {
-            four_burger++;
+            burgerNum[3]++;
         } else if(burgernum == 5){
-            five_burger++;
+            burgerNum[4]++;
         } else {
             // nothing
         }
     }
     public String burgerName() {
-        if (one_burger == 1) {
+        if (burgerNum[0] >= 1) {
             burger_name[0] = "ShackBurger";
             return burger_name[0];
             // return "ShackBurger";
-        } else if (two_burger == 1) {
+        } else if (burgerNum[1] >= 1) {
             burger_name[1] = "SmokeBurger";
             return burger_name[1];
-        } else if (three_burger == 1) {
+        } else if (burgerNum[2] >= 1) {
             burger_name[2] = "ShroomBurger";
             return burger_name[2];
-        } else if (four_burger == 1) {
+        } else if (burgerNum[3] >= 1) {
             burger_name[3] = "CheeseBurger";
             return burger_name[3];
-        } else if (five_burger == 1) {
+        } else if (burgerNum[4] >= 1) {
             burger_name[4] = "Hamburger";
             return burger_name[4];
         } else {
