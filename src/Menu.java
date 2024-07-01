@@ -15,6 +15,7 @@ public class Menu {
 
     // Q. 상속에서 필요 -> 이것이 왜 필요한가?
     public Menu() {
+
     }
     /*
     public void menuField() {

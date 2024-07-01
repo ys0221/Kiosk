@@ -29,6 +29,17 @@ public class Main {
             menu[i].printMenu(i);
         }
     }
+    public static int order() {
+        Scanner order_scanner = new Scanner(System.in);
+        int select_order = order_scanner.nextInt();
+        if (select_order == 1) {
+            return 1;
+        } else if (select_order == 2) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
     public static void main(String[] args) {
         int num_burger = 5;
         int num_frozencustard = 6;
@@ -76,6 +87,11 @@ public class Main {
             // Q. burgers.orderBurger(select_burger) 과의 차이점이 궁금
             burgers[select_burger-1].orderBurger(select_burger-1);
             int burger_next = burgers[select_burger-1].next();
+            // Q. else if 에 사용하면 값이 올바르게 나타나지 않는 이유
+            if (burger_next == 0) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                burger_next = burgers[select_burger - 1].next();
+            }
             if (burger_next == 1) {
                 burgers[select_burger-1].plusBurger(select_burger);
                 String burger = burgers[select_burger-1].burgerName();
@@ -87,8 +103,7 @@ public class Main {
                 menuField();
                 select_menu = menu_scanner.nextInt();
             } else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                burger_next = burgers[select_burger-1].next();
+                // nothing
             }
         }
 
@@ -113,6 +128,10 @@ public class Main {
             }
             frozen_custards[select_frozen_custard-1].orderFrozenCustard(select_frozen_custard-1);
             int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+            if(frozen_custard_next == 0) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+            }
             if (frozen_custard_next == 1) {
                 frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
                 String frozen_custard = frozen_custards[select_frozen_custard-1].frozencustardName();
@@ -124,8 +143,7 @@ public class Main {
                 menuField();
                 select_menu = menu_scanner.nextInt();
             } else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+                // nothing
             }
         }
 
@@ -150,6 +168,10 @@ public class Main {
             }
             drinks[select_drink-1].orderDrink(select_drink-1);
             int drink_next = drinks[select_drink-1].next();
+            if(drink_next == 0) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                drink_next = drinks[select_drink-1].next();
+            }
             if (drink_next == 1) {
                 drinks[select_drink-1].plusDrink(select_drink);
                 String drink = drinks[select_drink-1].drinkName();
@@ -161,8 +183,7 @@ public class Main {
                 menuField();
                 select_menu = menu_scanner.nextInt();
             } else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                drink_next = drinks[select_drink-1].next();
+                // nothing
             }
 
         }
@@ -184,6 +205,10 @@ public class Main {
             }
             beers[select_beer-1].orderBeer(select_beer-1);
             int beer_next = beers[select_beer-1].next();
+            if (beer_next == 0) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                beer_next = beers[select_beer-1].next();
+            }
             if (beer_next == 1) {
                 beers[select_beer-1].plusBeer(select_beer);
                 String beer = beers[select_beer-1].beerName();
@@ -194,8 +219,7 @@ public class Main {
                 menuField();
                 select_menu = menu_scanner.nextInt();
             } else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                beer_next = beers[select_beer-1].next();
+                // nothing
             }
         }
         // 클래스 메서드 사용할 때 먼저 클래스 선언하고 사용할 것
@@ -219,137 +243,137 @@ public class Main {
             System.out.println("아래와 같이 주문하시겠습니까?");
             System.out.println("[ ORDERS ]");
             // burger
-            if (burgers[0].one_burger >= 1) {
-                for (int i = 0; i < burgers[0].one_burger; i++) {
+            if (burgers[0].burgerNum[0] >= 1) {
+                for (int i = 0; i < burgers[0].burgerNum[0]; i++) {
                     burger_order[0].printOrderBurger(0);
                     burger_price = burger_order[0].burgerPrice(0);
                     total_burger_price = burger_order[0].totalBurger(burger_price);
                 }
             }
-            if (burgers[1].two_burger >= 1) {
-                for (int i = 0; i < burgers[1].two_burger; i++) {
+            if (burgers[1].burgerNum[1] >= 1) {
+                for (int i = 0; i < burgers[1].burgerNum[1]; i++) {
                     burger_order[1].printOrderBurger(1);
                     burger_price = burger_order[1].burgerPrice(1);
                     total_burger_price = burger_order[1].totalBurger(burger_price);
                 }
             }
-            if (burgers[2].three_burger >= 1) {
-                for (int i = 0; i < burgers[2].three_burger; i++) {
+            if (burgers[2].burgerNum[2] >= 1) {
+                for (int i = 0; i < burgers[2].burgerNum[2]; i++) {
                     burger_order[2].printOrderBurger(2);
                     burger_price = burger_order[2].burgerPrice(2);
                     total_burger_price = burger_order[2].totalBurger(burger_price);
                 }
             }
-            if (burgers[3].four_burger >= 1) {
-                for (int i = 0; i < burgers[3].four_burger; i++) {
+            if (burgers[3].burgerNum[3] >= 1) {
+                for (int i = 0; i < burgers[3].burgerNum[3]; i++) {
                     burger_order[3].printOrderBurger(3);
                     burger_price = burger_order[3].burgerPrice(3);
                     total_burger_price = burger_order[3].totalBurger(burger_price);
                 }
             }
-            if (burgers[4].five_burger >= 1) {
-                for (int i = 0; i < burgers[4].five_burger; i++) {
+            if (burgers[4].burgerNum[4] >= 1) {
+                for (int i = 0; i < burgers[4].burgerNum[4]; i++) {
                     burger_order[4].printOrderBurger(4);
                     burger_price = burger_order[4].burgerPrice(4);
                     total_burger_price = burger_order[4].totalBurger(burger_price);
                 }
             }
             // frozencustard
-            if (frozen_custards[0].one_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[0].one_frozen_custard; i++) {
+            if (frozen_custards[0].frozencustardNum[0] >= 1) {
+                for (int i = 0; i < frozen_custards[0].frozencustardNum[0]; i++) {
                     frozen_custard_order[0].printOrderFrozenCustard(0);
                     frozen_custard_price = frozen_custard_order[0].frozencustardPrice(0);
                     total_frozen_custard_price = frozen_custard_order[0].totalFrozenCustard(frozen_custard_price);
                 }
             }
-            if (frozen_custards[1].two_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[1].two_frozen_custard; i++) {
+            if (frozen_custards[1].frozencustardNum[1] >= 1) {
+                for (int i = 0; i < frozen_custards[1].frozencustardNum[1]; i++) {
                     frozen_custard_order[1].printOrderFrozenCustard(1);
                     frozen_custard_price = frozen_custard_order[1].frozencustardPrice(1);
                     total_frozen_custard_price = frozen_custard_order[1].totalFrozenCustard(frozen_custard_price);
                 }
             }
-            if (frozen_custards[2].three_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[2].three_frozen_custard; i++) {
+            if (frozen_custards[2].frozencustardNum[2] >= 1) {
+                for (int i = 0; i < frozen_custards[2].frozencustardNum[2]; i++) {
                     frozen_custard_order[2].printOrderFrozenCustard(2);
                     frozen_custard_price = frozen_custard_order[2].frozencustardPrice(2);
                     total_frozen_custard_price = frozen_custard_order[2].totalFrozenCustard(frozen_custard_price);
                 }
             }
-            if (frozen_custards[3].four_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[3].four_frozen_custard; i++) {
+            if (frozen_custards[3].frozencustardNum[3] >= 1) {
+                for (int i = 0; i < frozen_custards[3].frozencustardNum[3]; i++) {
                     frozen_custard_order[0].printOrderFrozenCustard(3);
                     frozen_custard_price = frozen_custard_order[3].frozencustardPrice(3);
                     total_frozen_custard_price = frozen_custard_order[3].totalFrozenCustard(frozen_custard_price);
                 }
             }
-            if (frozen_custards[4].five_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[4].five_frozen_custard; i++) {
+            if (frozen_custards[4].frozencustardNum[4] >= 1) {
+                for (int i = 0; i < frozen_custards[4].frozencustardNum[4]; i++) {
                     frozen_custard_order[4].printOrderFrozenCustard(4);
                     frozen_custard_price = frozen_custard_order[4].frozencustardPrice(4);
                     total_frozen_custard_price = frozen_custard_order[4].totalFrozenCustard(frozen_custard_price);
                 }
             }
-            if (frozen_custards[5].six_frozen_custard >= 1) {
-                for (int i = 0; i < frozen_custards[5].six_frozen_custard; i++) {
+            if (frozen_custards[5].frozencustardNum[5] >= 1) {
+                for (int i = 0; i < frozen_custards[5].frozencustardNum[5]; i++) {
                     frozen_custard_order[5].printOrderFrozenCustard(5);
                     frozen_custard_price = frozen_custard_order[5].frozencustardPrice(5);
                     total_frozen_custard_price = frozen_custard_order[5].totalFrozenCustard(frozen_custard_price);
                 }
             }
             // drink
-            if (drinks[0].one_drink >= 1) {
-                for (int i = 0; i < drinks[0].one_drink; i++) {
+            if (drinks[0].drinkNum[0] >= 1) {
+                for (int i = 0; i < drinks[0].drinkNum[0]; i++) {
                     drink_order[0].printOrderDrink(0);
                     drink_price = drink_order[0].drinkPrice(0);
                     total_drink_price = drink_order[0].totalDrink(drink_price);
                 }
             }
-            if (drinks[1].two_drink >= 1) {
-                for (int i = 0; i < drinks[1].two_drink; i++) {
+            if (drinks[1].drinkNum[1] >= 1) {
+                for (int i = 0; i < drinks[1].drinkNum[1]; i++) {
                     drink_order[1].printOrderDrink(1);
                     drink_price = drink_order[1].drinkPrice(1);
                     total_drink_price = drink_order[1].totalDrink(drink_price);
                 }
             }
-            if (drinks[2].three_drink >= 1) {
-                for (int i = 0; i < drinks[2].three_drink; i++) {
+            if (drinks[2].drinkNum[2] >= 1) {
+                for (int i = 0; i < drinks[2].drinkNum[2]; i++) {
                     drink_order[2].printOrderDrink(2);
                     drink_price = drink_order[2].drinkPrice(2);
                     total_drink_price = drink_order[2].totalDrink(drink_price);
                 }
             }
-            if (drinks[3].four_drink >= 1) {
-                for (int i = 0; i < drinks[3].four_drink; i++) {
+            if (drinks[3].drinkNum[3] >= 1) {
+                for (int i = 0; i < drinks[3].drinkNum[3]; i++) {
                     drink_order[3].printOrderDrink(3);
                     drink_price = drink_order[3].drinkPrice(3);
                     total_drink_price = drink_order[3].totalDrink(drink_price);
                 }
             }
-            if (drinks[4].five_drink >= 1) {
-                for (int i = 0; i < drinks[4].five_drink; i++) {
+            if (drinks[4].drinkNum[4] >= 1) {
+                for (int i = 0; i < drinks[4].drinkNum[4]; i++) {
                     drink_order[4].printOrderDrink(4);
                     drink_price = drink_order[4].drinkPrice(4);
                     total_drink_price = drink_order[4].totalDrink(drink_price);
                 }
             }
-            if (drinks[5].six_drink >= 1) {
-                for (int i = 0; i < drinks[5].six_drink; i++) {
+            if (drinks[5].drinkNum[5] >= 1) {
+                for (int i = 0; i < drinks[5].drinkNum[5]; i++) {
                     drink_order[5].printOrderDrink(5);
                     drink_price = drink_order[5].drinkPrice(5);
                     total_drink_price = drink_order[5].totalDrink(drink_price);
                 }
             }
             // beer
-            if (beers[0].one_beer >= 1) {
-                for (int i = 0; i < beers[0].one_beer; i++) {
+            if (beers[0].beerNum[0] >= 1) {
+                for (int i = 0; i < beers[0].beerNum[0]; i++) {
                     beer_order[0].printOrderBeer(0);
                     beer_price = beer_order[0].beerPrice(0);
                     total_beer_price = beer_order[0].totalBeer(beer_price);
                 }
             }
-            if (beers[1].two_beer >= 1) {
-                for (int i = 0; i < beers[1].two_beer; i++) {
+            if (beers[1].beerNum[1] >= 1) {
+                for (int i = 0; i < beers[1].beerNum[1]; i++) {
                     beer_order[1].printOrderBeer(1);
                     beer_price = beer_order[1].beerPrice(1);
                     total_beer_price = beer_order[1].totalBeer(beer_price);
@@ -359,18 +383,38 @@ public class Main {
             System.out.println("[ total ]");
             System.out.println("W " + total_price);
             System.out.println("1. 주문           2. 메뉴판");
-            Scanner order_scanner = new Scanner(System.in);
-            int select_order = order_scanner.nextInt();
+            int select_order = order();
+            if(select_order == 0) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                select_order = order();
+            }
             if (select_order == 1) {
                 System.out.println("주문이 완료되었습니다!");
                 System.out.println("");
                 System.out.println("대기번호는 [1]번 입니다."); // 변수로 받아야하는거 같음
                 System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
+                // 장바구니 초기화
+                // 1. 햄버거 초기화
+                for (int i = 0; i < num_burger; i++) {
+                    burgers[i].burgerNum[i] = 0;
+                }
+                // 2. FrozenCustard 초기화
+                for (int i = 0; i < num_frozencustard; i++) {
+                    frozen_custards[i].frozencustardNum[i] = 0;
+                }
+                // 3. Drink 초기화
+                for (int i = 0; i < num_drinks; i++) {
+                    drinks[i].drinkNum[i] = 0;
+                }
+                // 4. Beer 초기화
+                for (int i = 0; i < num_beer; i++) {
+                    beers[i].beerNum[i] = 0;
+                }
+                menuField();
             } else if (select_order == 2) {
                 menuField();
             } else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_order = order_scanner.nextInt();
+                // nothing
             }
         }
     }

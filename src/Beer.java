@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class Beer extends Menu {
     double price; // 상품 가격
     // 각 상품별 주문 개수
-    int one_beer = 0;
-    int two_beer = 0;
+    int[] beerNum = new int[2];
     String[] beer_name = new String[2];
 
     public Beer() {
@@ -25,9 +24,10 @@ public class Beer extends Menu {
     }
     public int next() {
         Scanner input = new Scanner(System.in);
-        if (input.nextInt() == 1) {
+        int select = input.nextInt();
+        if (select == 1) {
             return 1;
-        } else if (input.nextInt() == 2) {
+        } else if (select == 2) {
             return 2;
         } else {
             return 0;
@@ -35,19 +35,19 @@ public class Beer extends Menu {
     }
     public void plusBeer(int beernum) {
         if (beernum == 1) {
-            one_beer++;
+            beerNum[0]++;
         } else if (beernum == 2) {
-            two_beer++;
+            beerNum[1]++;
         } else {
             // nothing
         }
     }
     public String beerName() {
-        if (one_beer >= 1) {
+        if (beerNum[0] >= 1) {
             beer_name[0] = "ShackMeister Ale";
             return beer_name[0];
             // return "ShackBurger";
-        } else if (two_beer >= 1) {
+        } else if (beerNum[1] >= 1) {
             beer_name[1] = "Magpie Brewing Co.";
             return beer_name[1];
         } else {
