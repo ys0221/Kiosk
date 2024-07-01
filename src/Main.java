@@ -73,6 +73,27 @@ public class Main {
         burgers[2] = new Burger("Shroom Burger",9.4, "몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거");
         burgers[3] = new Burger("Cheeseburger",6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
         burgers[4] = new Burger("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거");
+        // 아이스크림 선택
+        FrozenCustard[] frozen_custards = new FrozenCustard[num_frozencustard];
+        frozen_custards[0] = new FrozenCustard("Shakes", 5.9, "바닐라, 초콜렛, 솔티드 카라멜, 블랙 & 화이트, 스트로베리, 피넛버터, 커피");
+        frozen_custards[1] = new FrozenCustard("Shake of the Week", 6.5, "특별한 커스터드 플레이버");
+        frozen_custards[2] = new FrozenCustard("Red Bean Shake", 6.5, "신선한 커스터드와 함께 우유와 레드빈이 블렌딩 된 시즈널 쉐이크");
+        frozen_custards[3] = new FrozenCustard("Floats", 5.9, "루트 비어, 퍼플 카우, 크림사클");
+        frozen_custards[4] = new FrozenCustard("Cups & Cones", 4.9, "바닐라, 초콜렛, Flavor of the Week");
+        frozen_custards[5] = new FrozenCustard("Concretes", 5.9, "쉐이크쉑의 쫀득한 커스터드와 다양한 믹스-인의 조합");
+        // 음료 선택
+        Drink[] drinks = new Drink[num_drinks];
+        drinks[0] = new Drink("Shack-made Lemonade", 3.9, "매장에서 직접 만드는 상큼한 레몬에이드(오리지날/시즈널)");
+        drinks[1] = new Drink("Fresh Brewed Iced Tea", 3.4, "직접 유기농 홍차를 우려낸 아이스티");
+        drinks[2] = new Drink("Fifty/Fifty", 3.5, "레몬에이드와 아이스티의 만남");
+        drinks[3] = new Drink("Fountain Soda", 2.7, "코카콜라, 코카콜라 제로, 스프라이트, 환타 오렌지, 환타 그레이프");
+        drinks[4] = new Drink("Abita Root Beer", 4.4, "청량감 있는 독특한 미국식 무알콜 탄산음료");
+        drinks[5] = new Drink("Bottled Water", 1.0, "지리산 암반대수층으로 만든 프리미엄 생수");
+        // 맥주 선택
+        Beer[] beers = new Beer[num_beer];
+        beers[0] = new Beer("ShackMeister Ale", 9.8, "쉐이크쉑 버거를 위해 뉴욕 브루클린 브루어리에서 특별히 양조한 에일 맥주");
+        beers[1] = new Beer("Magpie Brewing Co.", 6.8, " ");
+
         if (select_menu == 1) {
             System.out.println("[ Burgers Menu ]");
             for(int i=0; i<burgers.length; i++){
@@ -106,15 +127,6 @@ public class Main {
                 // nothing
             }
         }
-
-        // 아이스크림 선택
-        FrozenCustard[] frozen_custards = new FrozenCustard[num_frozencustard];
-        frozen_custards[0] = new FrozenCustard("Shakes", 5.9, "바닐라, 초콜렛, 솔티드 카라멜, 블랙 & 화이트, 스트로베리, 피넛버터, 커피");
-        frozen_custards[1] = new FrozenCustard("Shake of the Week", 6.5, "특별한 커스터드 플레이버");
-        frozen_custards[2] = new FrozenCustard("Red Bean Shake", 6.5, "신선한 커스터드와 함께 우유와 레드빈이 블렌딩 된 시즈널 쉐이크");
-        frozen_custards[3] = new FrozenCustard("Floats", 5.9, "루트 비어, 퍼플 카우, 크림사클");
-        frozen_custards[4] = new FrozenCustard("Cups & Cones", 4.9, "바닐라, 초콜렛, Flavor of the Week");
-        frozen_custards[5] = new FrozenCustard("Concretes", 5.9, "쉐이크쉑의 쫀득한 커스터드와 다양한 믹스-인의 조합");
         if (select_menu == 2) {
             System.out.println("[ Frozen Custard Menu ]");
             for (int i=0; i<frozen_custards.length; i++){
@@ -146,15 +158,6 @@ public class Main {
                 // nothing
             }
         }
-
-        // 음료 선택
-        Drink[] drinks = new Drink[num_drinks];
-        drinks[0] = new Drink("Shack-made Lemonade", 3.9, "매장에서 직접 만드는 상큼한 레몬에이드(오리지날/시즈널)");
-        drinks[1] = new Drink("Fresh Brewed Iced Tea", 3.4, "직접 유기농 홍차를 우려낸 아이스티");
-        drinks[2] = new Drink("Fifty/Fifty", 3.5, "레몬에이드와 아이스티의 만남");
-        drinks[3] = new Drink("Fountain Soda", 2.7, "코카콜라, 코카콜라 제로, 스프라이트, 환타 오렌지, 환타 그레이프");
-        drinks[4] = new Drink("Abita Root Beer", 4.4, "청량감 있는 독특한 미국식 무알콜 탄산음료");
-        drinks[5] = new Drink("Bottled Water", 1.0, "지리산 암반대수층으로 만든 프리미엄 생수");
         if (select_menu == 3) {
             System.out.println("[ Drinks Menu ]");
             for (int i=0; i<drinks.length; i++){
@@ -187,11 +190,6 @@ public class Main {
             }
 
         }
-
-        // 맥주 선택
-        Beer[] beers = new Beer[num_beer];
-        beers[0] = new Beer("ShackMeister Ale", 9.8, "쉐이크쉑 버거를 위해 뉴욕 브루클린 브루어리에서 특별히 양조한 에일 맥주");
-        beers[1] = new Beer("Magpie Brewing Co.", 6.8, " ");
         if (select_menu == 4) {
             System.out.println("[ Beers Menu ]");
             for (int i=0; i<beers.length; i++){
@@ -243,145 +241,50 @@ public class Main {
             System.out.println("아래와 같이 주문하시겠습니까?");
             System.out.println("[ ORDERS ]");
             // burger
-            if (burgers[0].burgerNum[0] >= 1) {
-                for (int i = 0; i < burgers[0].burgerNum[0]; i++) {
-                    burger_order[0].printOrderBurger(0);
-                    burger_price = burger_order[0].burgerPrice(0);
-                    total_burger_price = burger_order[0].totalBurger(burger_price);
-                }
-            }
-            if (burgers[1].burgerNum[1] >= 1) {
-                for (int i = 0; i < burgers[1].burgerNum[1]; i++) {
-                    burger_order[1].printOrderBurger(1);
-                    burger_price = burger_order[1].burgerPrice(1);
-                    total_burger_price = burger_order[1].totalBurger(burger_price);
-                }
-            }
-            if (burgers[2].burgerNum[2] >= 1) {
-                for (int i = 0; i < burgers[2].burgerNum[2]; i++) {
-                    burger_order[2].printOrderBurger(2);
-                    burger_price = burger_order[2].burgerPrice(2);
-                    total_burger_price = burger_order[2].totalBurger(burger_price);
-                }
-            }
-            if (burgers[3].burgerNum[3] >= 1) {
-                for (int i = 0; i < burgers[3].burgerNum[3]; i++) {
-                    burger_order[3].printOrderBurger(3);
-                    burger_price = burger_order[3].burgerPrice(3);
-                    total_burger_price = burger_order[3].totalBurger(burger_price);
-                }
-            }
-            if (burgers[4].burgerNum[4] >= 1) {
-                for (int i = 0; i < burgers[4].burgerNum[4]; i++) {
-                    burger_order[4].printOrderBurger(4);
-                    burger_price = burger_order[4].burgerPrice(4);
-                    total_burger_price = burger_order[4].totalBurger(burger_price);
+            for (int i = 0; i < 5; i++) {
+                if (burgers[i].burgerNum[i] >= 1) {
+                    for (int k = 0; k < burgers[i].burgerNum[i]; k++) {
+                        burger_order[i].printOrderBurger(i);
+                        burger_price = burger_order[i].burgerPrice(i);
+                        total_burger_price = burger_order[i].totalBurger(burger_price);
+                    }
                 }
             }
             // frozencustard
-            if (frozen_custards[0].frozencustardNum[0] >= 1) {
-                for (int i = 0; i < frozen_custards[0].frozencustardNum[0]; i++) {
-                    frozen_custard_order[0].printOrderFrozenCustard(0);
-                    frozen_custard_price = frozen_custard_order[0].frozencustardPrice(0);
-                    total_frozen_custard_price = frozen_custard_order[0].totalFrozenCustard(frozen_custard_price);
-                }
-            }
-            if (frozen_custards[1].frozencustardNum[1] >= 1) {
-                for (int i = 0; i < frozen_custards[1].frozencustardNum[1]; i++) {
-                    frozen_custard_order[1].printOrderFrozenCustard(1);
-                    frozen_custard_price = frozen_custard_order[1].frozencustardPrice(1);
-                    total_frozen_custard_price = frozen_custard_order[1].totalFrozenCustard(frozen_custard_price);
-                }
-            }
-            if (frozen_custards[2].frozencustardNum[2] >= 1) {
-                for (int i = 0; i < frozen_custards[2].frozencustardNum[2]; i++) {
-                    frozen_custard_order[2].printOrderFrozenCustard(2);
-                    frozen_custard_price = frozen_custard_order[2].frozencustardPrice(2);
-                    total_frozen_custard_price = frozen_custard_order[2].totalFrozenCustard(frozen_custard_price);
-                }
-            }
-            if (frozen_custards[3].frozencustardNum[3] >= 1) {
-                for (int i = 0; i < frozen_custards[3].frozencustardNum[3]; i++) {
-                    frozen_custard_order[0].printOrderFrozenCustard(3);
-                    frozen_custard_price = frozen_custard_order[3].frozencustardPrice(3);
-                    total_frozen_custard_price = frozen_custard_order[3].totalFrozenCustard(frozen_custard_price);
-                }
-            }
-            if (frozen_custards[4].frozencustardNum[4] >= 1) {
-                for (int i = 0; i < frozen_custards[4].frozencustardNum[4]; i++) {
-                    frozen_custard_order[4].printOrderFrozenCustard(4);
-                    frozen_custard_price = frozen_custard_order[4].frozencustardPrice(4);
-                    total_frozen_custard_price = frozen_custard_order[4].totalFrozenCustard(frozen_custard_price);
-                }
-            }
-            if (frozen_custards[5].frozencustardNum[5] >= 1) {
-                for (int i = 0; i < frozen_custards[5].frozencustardNum[5]; i++) {
-                    frozen_custard_order[5].printOrderFrozenCustard(5);
-                    frozen_custard_price = frozen_custard_order[5].frozencustardPrice(5);
-                    total_frozen_custard_price = frozen_custard_order[5].totalFrozenCustard(frozen_custard_price);
+            for (int j = 0; j < 6; j++) {
+                if (frozen_custards[j].frozencustardNum[j] >= 1) {
+                    for (int i = 0; i < frozen_custards[j].frozencustardNum[j]; i++) {
+                        frozen_custard_order[j].printOrderFrozenCustard(j);
+                        frozen_custard_price = frozen_custard_order[j].frozencustardPrice(j);
+                        total_frozen_custard_price = frozen_custard_order[j].totalFrozenCustard(frozen_custard_price);
+                    }
                 }
             }
             // drink
-            if (drinks[0].drinkNum[0] >= 1) {
-                for (int i = 0; i < drinks[0].drinkNum[0]; i++) {
-                    drink_order[0].printOrderDrink(0);
-                    drink_price = drink_order[0].drinkPrice(0);
-                    total_drink_price = drink_order[0].totalDrink(drink_price);
-                }
-            }
-            if (drinks[1].drinkNum[1] >= 1) {
-                for (int i = 0; i < drinks[1].drinkNum[1]; i++) {
-                    drink_order[1].printOrderDrink(1);
-                    drink_price = drink_order[1].drinkPrice(1);
-                    total_drink_price = drink_order[1].totalDrink(drink_price);
-                }
-            }
-            if (drinks[2].drinkNum[2] >= 1) {
-                for (int i = 0; i < drinks[2].drinkNum[2]; i++) {
-                    drink_order[2].printOrderDrink(2);
-                    drink_price = drink_order[2].drinkPrice(2);
-                    total_drink_price = drink_order[2].totalDrink(drink_price);
-                }
-            }
-            if (drinks[3].drinkNum[3] >= 1) {
-                for (int i = 0; i < drinks[3].drinkNum[3]; i++) {
-                    drink_order[3].printOrderDrink(3);
-                    drink_price = drink_order[3].drinkPrice(3);
-                    total_drink_price = drink_order[3].totalDrink(drink_price);
-                }
-            }
-            if (drinks[4].drinkNum[4] >= 1) {
-                for (int i = 0; i < drinks[4].drinkNum[4]; i++) {
-                    drink_order[4].printOrderDrink(4);
-                    drink_price = drink_order[4].drinkPrice(4);
-                    total_drink_price = drink_order[4].totalDrink(drink_price);
-                }
-            }
-            if (drinks[5].drinkNum[5] >= 1) {
-                for (int i = 0; i < drinks[5].drinkNum[5]; i++) {
-                    drink_order[5].printOrderDrink(5);
-                    drink_price = drink_order[5].drinkPrice(5);
-                    total_drink_price = drink_order[5].totalDrink(drink_price);
+            for (int x = 0; x < 6; x++) {
+                if (drinks[x].drinkNum[x] >= 1) {
+                    for (int i = 0; i < drinks[x].drinkNum[x]; i++) {
+                        drink_order[x].printOrderDrink(x);
+                        drink_price = drink_order[x].drinkPrice(x);
+                        total_drink_price = drink_order[x].totalDrink(drink_price);
+                    }
                 }
             }
             // beer
-            if (beers[0].beerNum[0] >= 1) {
-                for (int i = 0; i < beers[0].beerNum[0]; i++) {
-                    beer_order[0].printOrderBeer(0);
-                    beer_price = beer_order[0].beerPrice(0);
-                    total_beer_price = beer_order[0].totalBeer(beer_price);
-                }
-            }
-            if (beers[1].beerNum[1] >= 1) {
-                for (int i = 0; i < beers[1].beerNum[1]; i++) {
-                    beer_order[1].printOrderBeer(1);
-                    beer_price = beer_order[1].beerPrice(1);
-                    total_beer_price = beer_order[1].totalBeer(beer_price);
+            for (int y = 0; y < 2; y++) {
+                if (beers[y].beerNum[y] >= 1) {
+                    for (int i = 0; i < beers[y].beerNum[y]; i++) {
+                        beer_order[y].printOrderBeer(y);
+                        beer_price = beer_order[y].beerPrice(y);
+                        total_beer_price = beer_order[y].totalBeer(beer_price);
+                    }
                 }
             }
             double total_price = total_burger_price + total_frozen_custard_price + total_drink_price + total_beer_price;
+            // 소수점 둘째 자리까지만 출력
+            String totalStr = String.format("%.2f", total_price);
             System.out.println("[ total ]");
-            System.out.println("W " + total_price);
+            System.out.println("W " + totalStr);
             System.out.println("1. 주문           2. 메뉴판");
             int select_order = order();
             if(select_order == 0) {
