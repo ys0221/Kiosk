@@ -95,287 +95,287 @@ public class Main {
         Beer[] beers = new Beer[num_beer];
         beers[0] = new Beer("ShackMeister Ale", 9.8, "쉐이크쉑 버거를 위해 뉴욕 브루클린 브루어리에서 특별히 양조한 에일 맥주");
         beers[1] = new Beer("Magpie Brewing Co.", 6.8, " ");
-
-        if (select_menu == 1) {
-            System.out.println("[ Burgers Menu ]");
-            for(int i=0; i<burgers.length; i++){
-                burgers[i].printBurger(i);
-            }
-            Scanner burger_scanner = new Scanner(System.in);
-            int select_burger = burger_scanner.nextInt();
-            if(select_burger > 5){
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_burger = burger_scanner.nextInt();
-            }
-            // Q. burgers.orderBurger(select_burger) 과의 차이점이 궁금
-            burgers[select_burger-1].orderBurger(select_burger-1);
-            int burger_next = burgers[select_burger-1].next();
-            // Q. else if 에 사용하면 값이 올바르게 나타나지 않는 이유
-            if (burger_next == 0) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                burger_next = burgers[select_burger - 1].next();
-            }
-            if (burger_next == 1) {
-                burgers[select_burger-1].plusBurger(select_burger);
-                String burger = burgers[select_burger-1].burgerName();
-                System.out.println(burger + " 가 장바구니에 추가되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else if (burger_next == 2) {
-                System.out.println("취소되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else {
-                // nothing
-            }
-        }
-        if (select_menu == 2) {
-            System.out.println("[ Frozen Custard Menu ]");
-            for (int i=0; i<frozen_custards.length; i++){
-                frozen_custards[i].printFrozenCustard(i);
-            }
-            Scanner frozen_custard_scanner = new Scanner(System.in);
-            int select_frozen_custard = frozen_custard_scanner.nextInt();
-            if (select_frozen_custard > 6) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_frozen_custard = frozen_custard_scanner.nextInt();
-            }
-            frozen_custards[select_frozen_custard-1].orderFrozenCustard(select_frozen_custard-1);
-            int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
-            if(frozen_custard_next == 0) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
-            }
-            if (frozen_custard_next == 1) {
-                frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
-                String frozen_custard = frozen_custards[select_frozen_custard-1].frozencustardName();
-                System.out.println(frozen_custard + " 가 장바구니에 추가되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else if (frozen_custard_next == 2) {
-                System.out.println("취소되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else {
-                // nothing
-            }
-        }
-        if (select_menu == 3) {
-            System.out.println("[ Drinks Menu ]");
-            for (int i=0; i<drinks.length; i++){
-                drinks[i].printDrink(i);
-            }
-            Scanner drink_scanner = new Scanner(System.in);
-            int select_drink = drink_scanner.nextInt();
-            if (select_drink > 6) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_drink = drink_scanner.nextInt();
-            }
-            drinks[select_drink-1].orderDrink(select_drink-1);
-            int drink_next = drinks[select_drink-1].next();
-            if(drink_next == 0) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                drink_next = drinks[select_drink-1].next();
-            }
-            if (drink_next == 1) {
-                drinks[select_drink-1].plusDrink(select_drink);
-                String drink = drinks[select_drink-1].drinkName();
-                System.out.println(drink+" 가 장바구니에 추가되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else if (drink_next == 2) {
-                System.out.println("취소되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else {
-                // nothing
-            }
-
-        }
-        if (select_menu == 4) {
-            System.out.println("[ Beers Menu ]");
-            for (int i=0; i<beers.length; i++){
-                beers[i].printBeer(i);
-            }
-            Scanner beers_scanner = new Scanner(System.in);
-            int select_beer = beers_scanner.nextInt();
-            if (select_beer > 2) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_beer = beers_scanner.nextInt();
-            }
-            beers[select_beer-1].orderBeer(select_beer-1);
-            int beer_next = beers[select_beer-1].next();
-            if (beer_next == 0) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                beer_next = beers[select_beer-1].next();
-            }
-            if (beer_next == 1) {
-                beers[select_beer-1].plusBeer(select_beer);
-                String beer = beers[select_beer-1].beerName();
-                System.out.println(beer+ " 가 장바구니에 추가되었습니다.");
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else if (beer_next == 2) {
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else {
-                // nothing
-            }
-        }
-        // 클래스 메서드 사용할 때 먼저 클래스 선언하고 사용할 것
-        BurgerOrder burger_order[] = new BurgerOrder[5];
-        for (int i=0; i<burger_order.length; i++){
-            burger_order[i] = new BurgerOrder(burgers[i].burgerTitle, burgers[i].price, burgers[i].burgerDescription);
-        }
-        FrozenCustardOrder frozen_custard_order[] = new FrozenCustardOrder[6];
-        for (int i=0; i<frozen_custard_order.length; i++){
-            frozen_custard_order[i] = new FrozenCustardOrder(frozen_custards[i].frozencustardTitle, frozen_custards[i].price, frozen_custards[i].frozencustardDescription);
-        }
-        DrinkOrder drink_order[] = new DrinkOrder[6];
-        for (int i=0; i<drink_order.length; i++){
-            drink_order[i]= new DrinkOrder(drinks[i].drinkTitle, drinks[i].price, drinks[i].drinkDescription);
-        }
-        BeerOrder beer_order[] = new BeerOrder[2];
-        for (int i=0; i<beer_order.length; i++){
-            beer_order[i] = new BeerOrder(beers[i].beerTitle, beers[i].price, beers[i].beerDescription);
-        }
-        if (select_menu == 5) {
-            System.out.println("아래와 같이 주문하시겠습니까?");
-            System.out.println("[ ORDERS ]");
-            // burger
-            for (int i = 0; i < 5; i++) {
-                if (burgers[i].burgerNum[i] >= 1) {
-                    for (int k = 0; k < burgers[i].burgerNum[i]; k++) {
-                        burger_order[i].printOrderBurger(i);
-                        burger_price = burger_order[i].burgerPrice(i);
-                        total_burger_price = burger_order[i].totalBurger(burger_price);
-                    }
+        while(true) {
+            if (select_menu == 1) {
+                System.out.println("[ Burgers Menu ]");
+                for(int i=0; i<burgers.length; i++){
+                    burgers[i].printBurger(i);
                 }
-            }
-            // frozencustard
-            for (int j = 0; j < 6; j++) {
-                if (frozen_custards[j].frozencustardNum[j] >= 1) {
-                    for (int i = 0; i < frozen_custards[j].frozencustardNum[j]; i++) {
-                        frozen_custard_order[j].printOrderFrozenCustard(j);
-                        frozen_custard_price = frozen_custard_order[j].frozencustardPrice(j);
-                        total_frozen_custard_price = frozen_custard_order[j].totalFrozenCustard(frozen_custard_price);
-                    }
+                Scanner burger_scanner = new Scanner(System.in);
+                int select_burger = burger_scanner.nextInt();
+                if(select_burger > 5){
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    select_burger = burger_scanner.nextInt();
                 }
-            }
-            // drink
-            for (int x = 0; x < 6; x++) {
-                if (drinks[x].drinkNum[x] >= 1) {
-                    for (int i = 0; i < drinks[x].drinkNum[x]; i++) {
-                        drink_order[x].printOrderDrink(x);
-                        drink_price = drink_order[x].drinkPrice(x);
-                        total_drink_price = drink_order[x].totalDrink(drink_price);
-                    }
+                // Q. burgers.orderBurger(select_burger) 과의 차이점이 궁금
+                burgers[select_burger-1].orderBurger(select_burger-1);
+                int burger_next = burgers[select_burger-1].next();
+                // Q. else if 에 사용하면 값이 올바르게 나타나지 않는 이유
+                if (burger_next == 0) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    burger_next = burgers[select_burger - 1].next();
                 }
-            }
-            // beer
-            for (int y = 0; y < 2; y++) {
-                if (beers[y].beerNum[y] >= 1) {
-                    for (int i = 0; i < beers[y].beerNum[y]; i++) {
-                        beer_order[y].printOrderBeer(y);
-                        beer_price = beer_order[y].beerPrice(y);
-                        total_beer_price = beer_order[y].totalBeer(beer_price);
-                    }
-                }
-            }
-            double total_price = total_burger_price + total_frozen_custard_price + total_drink_price + total_beer_price;
-            // 소수점 둘째 자리까지만 출력
-            String totalStr = String.format("%.2f", total_price);
-            System.out.println("[ total ]");
-            System.out.println("W " + totalStr);
-            System.out.println("1. 주문           2. 메뉴판");
-            int select_order = order();
-            if(select_order == 0) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                select_order = order();
-            }
-            if (select_order == 1) {
-                System.out.println("주문이 완료되었습니다!");
-                System.out.println("");
-                System.out.println("대기번호는 " +num_customer+ " 번 입니다."); // 변수로 받아야하는거 같음
-                System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
-                // 장바구니 초기화
-                // 1. 햄버거 초기화
-                for (int i = 0; i < num_burger; i++) {
-                    burgers[i].burgerNum[i] = 0;
-                }
-                // 2. FrozenCustard 초기화
-                for (int i = 0; i < num_frozencustard; i++) {
-                    frozen_custards[i].frozencustardNum[i] = 0;
-                }
-                // 3. Drink 초기화
-                for (int i = 0; i < num_drinks; i++) {
-                    drinks[i].drinkNum[i] = 0;
-                }
-                // 4. Beer 초기화
-                for (int i = 0; i < num_beer; i++) {
-                    beers[i].beerNum[i] = 0;
-                }
-                // 3초 후 메뉴판 출력
-                try {
-                    TimeUnit.SECONDS.sleep(3);
+                if (burger_next == 1) {
+                    burgers[select_burger-1].plusBurger(select_burger);
+                    String burger = burgers[select_burger-1].burgerName();
+                    System.out.println(burger + " 가 장바구니에 추가되었습니다.");
                     menuField();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    select_menu = menu_scanner.nextInt();
+                } else if (burger_next == 2) {
+                    System.out.println("취소되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else {
+                    // nothing
                 }
-                select_menu = menu_scanner.nextInt();
-            } else if (select_order == 2) {
-                menuField();
-                select_menu = menu_scanner.nextInt();
-            } else {
-                // nothing
             }
+            if (select_menu == 2) {
+                System.out.println("[ Frozen Custard Menu ]");
+                for (int i=0; i<frozen_custards.length; i++){
+                    frozen_custards[i].printFrozenCustard(i);
+                }
+                Scanner frozen_custard_scanner = new Scanner(System.in);
+                int select_frozen_custard = frozen_custard_scanner.nextInt();
+                if (select_frozen_custard > 6) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    select_frozen_custard = frozen_custard_scanner.nextInt();
+                }
+                frozen_custards[select_frozen_custard-1].orderFrozenCustard(select_frozen_custard-1);
+                int frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+                if(frozen_custard_next == 0) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    frozen_custard_next = frozen_custards[select_frozen_custard-1].next();
+                }
+                if (frozen_custard_next == 1) {
+                    frozen_custards[select_frozen_custard-1].plusFrozenCustard(select_frozen_custard);
+                    String frozen_custard = frozen_custards[select_frozen_custard-1].frozencustardName();
+                    System.out.println(frozen_custard + " 가 장바구니에 추가되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else if (frozen_custard_next == 2) {
+                    System.out.println("취소되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else {
+                    // nothing
+                }
+            }
+            if (select_menu == 3) {
+                System.out.println("[ Drinks Menu ]");
+                for (int i=0; i<drinks.length; i++){
+                    drinks[i].printDrink(i);
+                }
+                Scanner drink_scanner = new Scanner(System.in);
+                int select_drink = drink_scanner.nextInt();
+                if (select_drink > 6) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    select_drink = drink_scanner.nextInt();
+                }
+                drinks[select_drink-1].orderDrink(select_drink-1);
+                int drink_next = drinks[select_drink-1].next();
+                if(drink_next == 0) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    drink_next = drinks[select_drink-1].next();
+                }
+                if (drink_next == 1) {
+                    drinks[select_drink-1].plusDrink(select_drink);
+                    String drink = drinks[select_drink-1].drinkName();
+                    System.out.println(drink+" 가 장바구니에 추가되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else if (drink_next == 2) {
+                    System.out.println("취소되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else {
+                    // nothing
+                }
 
-        }
-        if (select_menu == 6) {
-            System.out.println("진행하던 주문을 취소하시겠습니까?");
-            System.out.println("1. 확인           2. 취소");
-            Scanner cancel_scanner = new Scanner(System.in);
-            int cancel = cancel_scanner.nextInt();
-            if (cancel != 1 && cancel != 2) {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요.");
-                cancel = cancel_scanner.nextInt();
             }
-            if (cancel == 1) {
-                System.out.println("진행하던 주문이 취소되었습니다.");
-                // 장바구니 초기화
-                // 1. 햄버거 초기화
-                for (int i = 0; i < num_burger; i++) {
-                    burgers[i].burgerNum[i] = 0;
+            if (select_menu == 4) {
+                System.out.println("[ Beers Menu ]");
+                for (int i=0; i<beers.length; i++){
+                    beers[i].printBeer(i);
                 }
-                // 2. FrozenCustard 초기화
-                for (int i = 0; i < num_frozencustard; i++) {
-                    frozen_custards[i].frozencustardNum[i] = 0;
+                Scanner beers_scanner = new Scanner(System.in);
+                int select_beer = beers_scanner.nextInt();
+                if (select_beer > 2) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    select_beer = beers_scanner.nextInt();
                 }
-                // 3. Drink 초기화
-                for (int i = 0; i < num_drinks; i++) {
-                    drinks[i].drinkNum[i] = 0;
+                beers[select_beer-1].orderBeer(select_beer-1);
+                int beer_next = beers[select_beer-1].next();
+                if (beer_next == 0) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    beer_next = beers[select_beer-1].next();
                 }
-                // 4. Beer 초기화
-                for (int i = 0; i < num_beer; i++) {
-                    beers[i].beerNum[i] = 0;
+                if (beer_next == 1) {
+                    beers[select_beer-1].plusBeer(select_beer);
+                    String beer = beers[select_beer-1].beerName();
+                    System.out.println(beer+ " 가 장바구니에 추가되었습니다.");
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else if (beer_next == 2) {
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else {
+                    // nothing
                 }
-                menuField();
-                // select_menu 선언 안 됨
-                select_menu = menu_scanner.nextInt();
-            } else if (cancel == 2) {
-                // select_menu 선언 안 됨
-                select_menu = menu_scanner.nextInt();
-                menuField();
             }
-            // cancel 선언이 안 됨
-            /*
-            else {
-                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                cancel = cancel_scanner.nextInt();
+            // 클래스 메서드 사용할 때 먼저 클래스 선언하고 사용할 것
+            BurgerOrder burger_order[] = new BurgerOrder[5];
+            for (int i=0; i<burger_order.length; i++){
+                burger_order[i] = new BurgerOrder(burgers[i].burgerTitle, burgers[i].price, burgers[i].burgerDescription);
             }
-             */
+            FrozenCustardOrder frozen_custard_order[] = new FrozenCustardOrder[6];
+            for (int i=0; i<frozen_custard_order.length; i++){
+                frozen_custard_order[i] = new FrozenCustardOrder(frozen_custards[i].frozencustardTitle, frozen_custards[i].price, frozen_custards[i].frozencustardDescription);
+            }
+            DrinkOrder drink_order[] = new DrinkOrder[6];
+            for (int i=0; i<drink_order.length; i++){
+                drink_order[i]= new DrinkOrder(drinks[i].drinkTitle, drinks[i].price, drinks[i].drinkDescription);
+            }
+            BeerOrder beer_order[] = new BeerOrder[2];
+            for (int i=0; i<beer_order.length; i++){
+                beer_order[i] = new BeerOrder(beers[i].beerTitle, beers[i].price, beers[i].beerDescription);
+            }
+            if (select_menu == 5) {
+                System.out.println("아래와 같이 주문하시겠습니까?");
+                System.out.println("[ ORDERS ]");
+                // burger
+                for (int i = 0; i < 5; i++) {
+                    if (burgers[i].burgerNum[i] >= 1) {
+                        for (int k = 0; k < burgers[i].burgerNum[i]; k++) {
+                            burger_order[i].printOrderBurger(i);
+                            burger_price = burger_order[i].burgerPrice(i);
+                            total_burger_price = burger_order[i].totalBurger(burger_price);
+                        }
+                    }
+                }
+                // frozencustard
+                for (int j = 0; j < 6; j++) {
+                    if (frozen_custards[j].frozencustardNum[j] >= 1) {
+                        for (int i = 0; i < frozen_custards[j].frozencustardNum[j]; i++) {
+                            frozen_custard_order[j].printOrderFrozenCustard(j);
+                            frozen_custard_price = frozen_custard_order[j].frozencustardPrice(j);
+                            total_frozen_custard_price = frozen_custard_order[j].totalFrozenCustard(frozen_custard_price);
+                        }
+                    }
+                }
+                // drink
+                for (int x = 0; x < 6; x++) {
+                    if (drinks[x].drinkNum[x] >= 1) {
+                        for (int i = 0; i < drinks[x].drinkNum[x]; i++) {
+                            drink_order[x].printOrderDrink(x);
+                            drink_price = drink_order[x].drinkPrice(x);
+                            total_drink_price = drink_order[x].totalDrink(drink_price);
+                        }
+                    }
+                }
+                // beer
+                for (int y = 0; y < 2; y++) {
+                    if (beers[y].beerNum[y] >= 1) {
+                        for (int i = 0; i < beers[y].beerNum[y]; i++) {
+                            beer_order[y].printOrderBeer(y);
+                            beer_price = beer_order[y].beerPrice(y);
+                            total_beer_price = beer_order[y].totalBeer(beer_price);
+                        }
+                    }
+                }
+                double total_price = total_burger_price + total_frozen_custard_price + total_drink_price + total_beer_price;
+                // 소수점 둘째 자리까지만 출력
+                String totalStr = String.format("%.1f", total_price);
+                System.out.println("[ total ]");
+                System.out.println(total_burger_price + " + " + total_frozen_custard_price + " + " + total_drink_price + " + " + total_beer_price + " = " + "W " + totalStr);
+                System.out.println("1. 주문           2. 메뉴판");
+                int select_order = order();
+                if(select_order == 0) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                    select_order = order();
+                }
+                if (select_order == 1) {
+                    System.out.println("주문이 완료되었습니다!");
+                    System.out.println("");
+                    System.out.println("대기번호는 " +num_customer+ " 번 입니다."); // 변수로 받아야하는거 같음
+                    System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
+                    // 장바구니 초기화
+                    // 1. 햄버거 초기화
+                    for (int i = 0; i < num_burger; i++) {
+                        burgers[i].burgerNum[i] = 0;
+                    }
+                    // 2. FrozenCustard 초기화
+                    for (int i = 0; i < num_frozencustard; i++) {
+                        frozen_custards[i].frozencustardNum[i] = 0;
+                    }
+                    // 3. Drink 초기화
+                    for (int i = 0; i < num_drinks; i++) {
+                        drinks[i].drinkNum[i] = 0;
+                    }
+                    // 4. Beer 초기화
+                    for (int i = 0; i < num_beer; i++) {
+                        beers[i].beerNum[i] = 0;
+                    }
+                    num_customer++;
+                    total_burger_price = 0.0;
+                    total_frozen_custard_price = 0.0;
+                    total_drink_price = 0.0;
+                    total_beer_price = 0.0;
+                    // 3초 후 메뉴판 출력
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                        menuField();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    select_menu = menu_scanner.nextInt();
+                } else if (select_order == 2) {
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else {
+                    // nothing
+                }
+
+            }
+            if (select_menu == 6) {
+                System.out.println("진행하던 주문을 취소하시겠습니까?");
+                System.out.println("1. 확인           2. 취소");
+                Scanner cancel_scanner = new Scanner(System.in);
+                int cancel = cancel_scanner.nextInt();
+                if (cancel != 1 && cancel != 2) {
+                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요.");
+                    cancel = cancel_scanner.nextInt();
+                }
+                if (cancel == 1) {
+                    System.out.println("진행하던 주문이 취소되었습니다.");
+                    // 장바구니 초기화 -> 상품의 개수 + 가격 초기화
+                    // 1. 햄버거 초기화
+                    for (int i = 0; i < num_burger; i++) {
+                        burgers[i].burgerNum[i] = 0;
+                    }
+                    // 2. FrozenCustard 초기화
+                    for (int i = 0; i < num_frozencustard; i++) {
+                        frozen_custards[i].frozencustardNum[i] = 0;
+                    }
+                    // 3. Drink 초기화
+                    for (int i = 0; i < num_drinks; i++) {
+                        drinks[i].drinkNum[i] = 0;
+                    }
+                    // 4. Beer 초기화
+                    for (int i = 0; i < num_beer; i++) {
+                        beers[i].beerNum[i] = 0;
+                    }
+                    total_burger_price = 0.0;
+                    total_frozen_custard_price = 0.0;
+                    total_drink_price = 0.0;
+                    total_beer_price = 0.0;
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+                } else if (cancel == 2) {
+                    menuField();
+                    select_menu = menu_scanner.nextInt();
+
+                }
+            }
         }
     }
-
-
 }
