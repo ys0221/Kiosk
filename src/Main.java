@@ -283,7 +283,7 @@ public class Main {
                     }
                 }
                 double total_price = total_burger_price + total_frozen_custard_price + total_drink_price + total_beer_price;
-                // 소수점 둘째 자리까지만 출력
+                // 소수점 첫째 자리까지만 출력
                 String totalStr = String.format("%.1f", total_price);
                 System.out.println("[ total ]");
                 System.out.println(total_burger_price + " + " + total_frozen_custard_price + " + " + total_drink_price + " + " + total_beer_price + " = " + "W " + totalStr);
