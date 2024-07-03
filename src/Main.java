@@ -1,6 +1,7 @@
 import javax.naming.BinaryRefAddr;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void menuField() {
@@ -45,6 +46,7 @@ public class Main {
         int num_frozencustard = 6;
         int num_drinks = 6;
         int num_beer = 2;
+        int num_customer = 1;
         double burger_price = 0.0;
         double total_burger_price = 0.0;
         double frozen_custard_price = 0.0;
@@ -294,7 +296,7 @@ public class Main {
             if (select_order == 1) {
                 System.out.println("주문이 완료되었습니다!");
                 System.out.println("");
-                System.out.println("대기번호는 [1]번 입니다."); // 변수로 받아야하는거 같음
+                System.out.println("대기번호는 " +num_customer+ " 번 입니다."); // 변수로 받아야하는거 같음
                 System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
                 // 장바구니 초기화
                 // 1. 햄버거 초기화
@@ -313,12 +315,65 @@ public class Main {
                 for (int i = 0; i < num_beer; i++) {
                     beers[i].beerNum[i] = 0;
                 }
-                menuField();
+                // 3초 후 메뉴판 출력
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                    menuField();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                select_menu = menu_scanner.nextInt();
             } else if (select_order == 2) {
                 menuField();
+                select_menu = menu_scanner.nextInt();
             } else {
                 // nothing
             }
+
+        }
+        if (select_menu == 6) {
+            System.out.println("진행하던 주문을 취소하시겠습니까?");
+            System.out.println("1. 확인           2. 취소");
+            Scanner cancel_scanner = new Scanner(System.in);
+            int cancel = cancel_scanner.nextInt();
+            if (cancel != 1 && cancel != 2) {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요.");
+                cancel = cancel_scanner.nextInt();
+            }
+            if (cancel == 1) {
+                System.out.println("진행하던 주문이 취소되었습니다.");
+                // 장바구니 초기화
+                // 1. 햄버거 초기화
+                for (int i = 0; i < num_burger; i++) {
+                    burgers[i].burgerNum[i] = 0;
+                }
+                // 2. FrozenCustard 초기화
+                for (int i = 0; i < num_frozencustard; i++) {
+                    frozen_custards[i].frozencustardNum[i] = 0;
+                }
+                // 3. Drink 초기화
+                for (int i = 0; i < num_drinks; i++) {
+                    drinks[i].drinkNum[i] = 0;
+                }
+                // 4. Beer 초기화
+                for (int i = 0; i < num_beer; i++) {
+                    beers[i].beerNum[i] = 0;
+                }
+                menuField();
+                // select_menu 선언 안 됨
+                select_menu = menu_scanner.nextInt();
+            } else if (cancel == 2) {
+                // select_menu 선언 안 됨
+                select_menu = menu_scanner.nextInt();
+                menuField();
+            }
+            // cancel 선언이 안 됨
+            /*
+            else {
+                System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                cancel = cancel_scanner.nextInt();
+            }
+             */
         }
     }
 
