@@ -11,8 +11,4 @@ public class FrozenCustardOrder extends FrozenCustard{
     public double frozencustardPrice(int num) {
         return price;
     }
-    public double totalFrozenCustard(double frozen_custard_price) {
-        total_frozencustard_price += frozen_custard_price;
-        return total_frozencustard_price;
-    }
 }
