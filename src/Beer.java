@@ -46,7 +46,6 @@ public class Beer extends Menu {
         if (beerNum[0] >= 1) {
             beer_name[0] = "ShackMeister Ale";
             return beer_name[0];
-            // return "ShackBurger";
         } else if (beerNum[1] >= 1) {
             beer_name[1] = "Magpie Brewing Co.";
             return beer_name[1];

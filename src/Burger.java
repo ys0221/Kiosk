@@ -5,7 +5,6 @@ public class Burger extends Menu {
     int[] burgerNum = new int[5];
     String burger_name[] = new String[5];
     double price; // 상품 가격
-    // double price = 0;
 
     public Burger() {
         // 상속
@@ -18,12 +17,6 @@ public class Burger extends Menu {
     public void printBurger(int num) {
         System.out.println(num+1 + ". " + burgerTitle + " | W "  + price + " | " + burgerDescription);
     }
-    /*
-    public void setBurgerName(int num) {
-        burger_name[num] = burgerTitle;
-    }
-
-     */
     public void orderBurger(int n) {
         printBurger(n);
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
@@ -59,7 +52,6 @@ public class Burger extends Menu {
         if (burgerNum[0] >= 1) {
             burger_name[0] = "ShackBurger";
             return burger_name[0];
-            // return "ShackBurger";
         } else if (burgerNum[1] >= 1) {
             burger_name[1] = "SmokeBurger";
             return burger_name[1];

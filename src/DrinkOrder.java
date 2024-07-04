@@ -11,8 +11,4 @@ public class DrinkOrder extends Drink {
     public double drinkPrice(int num) {
         return price;
     }
-    public double totalDrink(double drink_price) {
-        total_drink_price += drink_price;
-        return total_drink_price;
-    }
 }
