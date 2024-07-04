@@ -111,7 +111,7 @@ public class Main {
                 burgers[select_burger - 1].orderBurger(select_burger - 1);
                 int burger_next = burgers[select_burger - 1].next();
                 // Q. else if 에 사용하면 값이 올바르게 나타나지 않는 이유
-                if (burger_next == 0) {
+                while (burger_next == 0) {
                     System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
                     burger_next = burgers[select_burger - 1].next();
                 }
@@ -142,7 +142,7 @@ public class Main {
                 }
                 frozen_custards[select_frozen_custard - 1].orderFrozenCustard(select_frozen_custard - 1);
                 int frozen_custard_next = frozen_custards[select_frozen_custard - 1].next();
-                if (frozen_custard_next == 0) {
+                while (frozen_custard_next == 0) {
                     System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
                     frozen_custard_next = frozen_custards[select_frozen_custard - 1].next();
                 }
@@ -173,7 +173,7 @@ public class Main {
                 }
                 drinks[select_drink - 1].orderDrink(select_drink - 1);
                 int drink_next = drinks[select_drink - 1].next();
-                if (drink_next == 0) {
+                while (drink_next == 0) {
                     System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
                     drink_next = drinks[select_drink - 1].next();
                 }
@@ -205,7 +205,7 @@ public class Main {
                 }
                 beers[select_beer - 1].orderBeer(select_beer - 1);
                 int beer_next = beers[select_beer - 1].next();
-                if (beer_next == 0) {
+                while (beer_next == 0) {
                     System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
                     beer_next = beers[select_beer - 1].next();
                 }
@@ -332,6 +332,11 @@ public class Main {
                 } else if (select_order == 2) {
                     menuField();
                     select_menu = menu_scanner.nextInt();
+                    // 메뉴로 돌아간 뒤 다시 상품을 담으면 전에 담았던 상품들의 가격과 이번에 새로 담은 상품들의 가격이 합해져서 나타나기 때문에 새로 초기화
+                    total_burger_price = 0.0;
+                    total_frozen_custard_price = 0.0;
+                    total_drink_price = 0.0;
+                    total_beer_price = 0.0;
                 } else {
                     // nothing
                 }
