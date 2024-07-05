@@ -290,55 +290,61 @@ public class Main {
                 System.out.println("W " + totalStr);
                 System.out.println("1. 주문           2. 메뉴판");
                 int select_order = order();
-                while (select_order == 0) {
-                    System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
-                    select_order = order();
-                }
-                if (select_order == 1) {
-                    System.out.println("주문이 완료되었습니다!");
-                    System.out.println("");
-                    System.out.println("대기번호는 " + num_customer + " 번 입니다."); // 변수로 받아야하는거 같음
-                    System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
-                    // 장바구니 초기화
-                    // 1. 햄버거 초기화
-                    for (int i = 0; i < num_burger; i++) {
-                            burgers[i].burgerNum[i] = 0;
-                    }
-                    // 2. FrozenCustard 초기화
-                    for (int i = 0; i < num_frozencustard; i++) {
-                        frozen_custards[i].frozencustardNum[i] = 0;
-                    }
-                    // 3. Drink 초기화
-                    for (int i = 0; i < num_drinks; i++) {
-                        drinks[i].drinkNum[i] = 0;
-                    }
-                    // 4. Beer 초기화
-                    for (int i = 0; i < num_beer; i++) {
-                        beers[i].beerNum[i] = 0;
-                    }
-                    num_customer++;
-                    total_burger_price = 0.0;
-                    total_frozen_custard_price = 0.0;
-                    total_drink_price = 0.0;
-                    total_beer_price = 0.0;
-                    // 3초 후 메뉴판 출력
-                    try {
-                        TimeUnit.SECONDS.sleep(3);
-                        menuField();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    select_menu = menu_scanner.nextInt();
-                } else if (select_order == 2) {
+                if (total_price == 0) {
+                    System.out.println("주문할 상품이 없습니다. 상품 선택 후 다시 주문해주세요");
                     menuField();
                     select_menu = menu_scanner.nextInt();
-                    // 메뉴로 돌아간 뒤 다시 상품을 담으면 전에 담았던 상품들의 가격과 이번에 새로 담은 상품들의 가격이 합해져서 나타나기 때문에 새로 초기화
-                    total_burger_price = 0.0;
-                    total_frozen_custard_price = 0.0;
-                    total_drink_price = 0.0;
-                    total_beer_price = 0.0;
                 } else {
-                    // nothing
+                    while (select_order == 0) {
+                        System.out.println("잘못 선택하셨습니다. 다시 선택해주세요");
+                        select_order = order();
+                    }
+                    if (select_order == 1) {
+                        System.out.println("주문이 완료되었습니다!");
+                        System.out.println("");
+                        System.out.println("대기번호는 " + num_customer + " 번 입니다."); // 변수로 받아야하는거 같음
+                        System.out.println("(3초 후 메뉴판으로 돌아갑니다)");
+                        // 장바구니 초기화
+                        // 1. 햄버거 초기화
+                        for (int i = 0; i < num_burger; i++) {
+                            burgers[i].burgerNum[i] = 0;
+                        }
+                        // 2. FrozenCustard 초기화
+                        for (int i = 0; i < num_frozencustard; i++) {
+                            frozen_custards[i].frozencustardNum[i] = 0;
+                        }
+                        // 3. Drink 초기화
+                        for (int i = 0; i < num_drinks; i++) {
+                            drinks[i].drinkNum[i] = 0;
+                        }
+                        // 4. Beer 초기화
+                        for (int i = 0; i < num_beer; i++) {
+                            beers[i].beerNum[i] = 0;
+                        }
+                        num_customer++;
+                        total_burger_price = 0.0;
+                        total_frozen_custard_price = 0.0;
+                        total_drink_price = 0.0;
+                        total_beer_price = 0.0;
+                        // 3초 후 메뉴판 출력
+                        try {
+                            TimeUnit.SECONDS.sleep(3);
+                            menuField();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        select_menu = menu_scanner.nextInt();
+                    } else if (select_order == 2) {
+                        menuField();
+                        select_menu = menu_scanner.nextInt();
+                        // 메뉴로 돌아간 뒤 다시 상품을 담으면 전에 담았던 상품들의 가격과 이번에 새로 담은 상품들의 가격이 합해져서 나타나기 때문에 새로 초기화
+                        total_burger_price = 0.0;
+                        total_frozen_custard_price = 0.0;
+                        total_drink_price = 0.0;
+                        total_beer_price = 0.0;
+                    } else {
+                        // nothing
+                    }
                 }
 
             }
